@@ -1,0 +1,87 @@
+.searchBar {
+  background: url(./background.jpg) no-repeat center center/cover;
+}
+
+.logo {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
+
+.developer {
+  text-align: right;
+  color: rgba(151, 0, 0, 0.603);
+  font-weight: bolder;
+  font-size: 0.8rem;
+  text-shadow: 1px 2px 1px rgb(255, 233, 33);
+}
+
+#exclaim {
+  font-size: 4.2rem;
+  display: inline-block;
+  transform: rotate(15deg);
+}
+
+/* image */
+.image {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.img-details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+  cursor: pointer;
+}
+
+.img-details .upper-part,
+.below-part {
+  padding: 5px;
+}
+
+.img-details .below-part {
+  transform: translatey(210%);
+  transition: all 0.4s ease;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+  background-image: linear-gradient(transparent, #444);
+}
+
+.img-details .upper-part {
+  transform: translatey(-210%);
+  transition: all 0.4s ease;
+}
+
+.image:hover > .img-details .below-part {
+  transform: translatey(0);
+}
+.image:hover > .img-details .upper-part {
+  transform: translatey(0);
+}
+
+.below-part span {
+  padding: 4px;
+}
