@@ -56,7 +56,7 @@ const ImageState = (props) => {
   const searchImage = async (value) => {
     setSpinner();
     const res = await axios.get(
-      `https://pixabay.com/api/?key=21235914-8dc8c31801f7cc5f6a560da3b&q=${value}&image_type=all&pretty=true&per_page=200&order=${state.order}`
+      `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${value}&image_type=all&pretty=true&per_page=200&order=${state.order}`
     );
     dispatch({ type: 'storeImages', payload: res.data.hits });
   };
@@ -82,7 +82,16 @@ const ImageState = (props) => {
   const { alert, images, spinner, order } = state;
   return (
     <ImageContext.Provider
-      value={{ alert, images, spinner, order, setAlert, removeAlert, searchImage, setOrder }}
+      value={{
+        alert,
+        images,
+        spinner,
+        order,
+        setAlert,
+        removeAlert,
+        searchImage,
+        setOrder,
+      }}
     >
       {props.children}
     </ImageContext.Provider>

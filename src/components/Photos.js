@@ -4,7 +4,6 @@ import Photo from './Photo';
 import Spinner from './Spinner';
 
 const Photos = () => {
-
   const imageContext = useContext(ImageContext);
   const { images, spinner } = imageContext;
 
@@ -12,10 +11,18 @@ const Photos = () => {
     return <Spinner />;
   }
   return (
-    <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 m-4'>
-      {images.length > 0 &&
-        images.map((image) => <Photo key={image.id} image={image} />)}
-    </div>
+    <>
+      {images.length > 0 ? (
+        <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 m-4'>
+          {images.map((image) => <Photo key={image.id} image={image} />)}
+        </div>
+      ) : (
+        <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "50vh", fontFamily: "monospace" }} >
+          <h1>No Images Found...</h1>
+        </div>
+      )
+      }
+    </>
   );
 };
 
